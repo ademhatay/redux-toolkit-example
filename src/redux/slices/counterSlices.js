@@ -12,13 +12,13 @@ const initialState = {
 // reducer
 export const counterSlices = createReducer(initialState, builder => {
 	builder.addCase(increment, (state, action) => {
-		state++;
+		state.value++;
 	});
 	builder.addCase(decrement, (state, action) => {
-		state--;
+		state.value--;
 	});
 	builder.addCase(increaseAmount, (state, action) => {
-		state.value = action.payload
+		state.value += action.payload
 	});
 })
 

@@ -10,16 +10,30 @@ const initialState = {
 }
 
 // reducer
-export const counterSlices = createReducer(initialState, builder => {
-	builder.addCase(increment, (state, action) => {
-		state.value++;
-	});
-	builder.addCase(decrement, (state, action) => {
-		state.value--;
-	});
-	builder.addCase(increaseAmount, (state, action) => {
-		state.value += action.payload
-	});
+//export const counterSlices = createReducer(initialState, builder => {
+//	builder.addCase(increment, (state, action) => {
+//		state.value++;
+//	});
+//	builder.addCase(decrement, (state, action) => {
+//		state.value--;
+//	});
+//	builder.addCase(increaseAmount, (state, action) => {
+//		state.value += action.payload
+//	});
+//})
+
+// ! Map Notation
+
+export const counterSlices = createReducer(initialState, {
+	 [increment] : (state, action) => {
+	 	state.value++;
+	 },
+	 [decrement] : (state, action) => {
+	 	state.value--;
+	 },
+	 [increaseAmount] : (state, action) => {
+	 	state.value += action.payload
+	 },
 })
 
 

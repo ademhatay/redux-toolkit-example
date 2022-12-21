@@ -1,10 +1,10 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
+  increament,
   decrement,
-  increment,
-  increaseAmount
-} from './redux/slices/counterSlices';
+  increaseByAmount,
+} from "./redux/slices/counterSlices";
 
 
 function App() {
@@ -17,9 +17,9 @@ function App() {
   return <>
     <h1>Redux Toolkit Counter</h1>
     <h2>Counter: {counter.value}</h2>
-    <button onClick={() => dispatch(increment())} > + </button>
+    <button onClick={() => dispatch(increament())} > + </button>
     <button onClick={() => dispatch(decrement())} > - </button>
-    <button onClick={() => dispatch(increaseAmount(20))}>Increase Amount</button>
+    <button onClick={() => dispatch(increaseByAmount(20))}>Increase Amount</button>
   </>
 }
 

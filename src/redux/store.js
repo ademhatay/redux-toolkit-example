@@ -1,10 +1,11 @@
 // First, create store and Prodive Store in index js
 import { configureStore } from '@reduxjs/toolkit';
-import { counterSlices } from './slices/counterSlices';
+import counterReducer from './slices/counterSlices';
+
 const store = configureStore({
-	reducer: {
-		counter: counterSlices,
-	}
+  reducer: {
+    counter: counterReducer,
+  },
 });
 
 export default store;

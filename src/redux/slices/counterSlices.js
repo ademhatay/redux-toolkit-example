@@ -1,39 +1,29 @@
-import {createAction, createReducer} from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
-
-export const increment = createAction('increment/counter');
-export const decrement = createAction('decrement/counter');
-export const increaseAmount = createAction('increaseByAmount/counter');
-
+//initialState
 const initialState = {
-	value: 0
-}
+  value: 0,
+};
 
-// reducer
-//export const counterSlices = createReducer(initialState, builder => {
-//	builder.addCase(increment, (state, action) => {
-//		state.value++;
-//	});
-//	builder.addCase(decrement, (state, action) => {
-//		state.value--;
-//	});
-//	builder.addCase(increaseAmount, (state, action) => {
-//		state.value += action.payload
-//	});
-//})
+export const counterSlices = createSlice({
+  name: "counter",
+  initialState,
+  reducers: {
+    increament: (state, action) => {
+      state.value++;
+    },
+    decrement: (state, action) => {
+      state.value--;
+    },
+    increaseByAmount: (state, action) => {
+      state.value += action.payload;
+    },
+  },
+});
 
-// ! Map Notation
+//generate the action creators
+export const { increament, decrement, increaseByAmount } =
+  counterSlices.actions;
 
-export const counterSlices = createReducer(initialState, {
-	 [increment] : (state, action) => {
-	 	state.value++;
-	 },
-	 [decrement] : (state, action) => {
-	 	state.value--;
-	 },
-	 [increaseAmount] : (state, action) => {
-	 	state.value += action.payload
-	 },
-})
-
-
+//export reducers
+export default counterSlices.reducer;

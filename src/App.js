@@ -19,7 +19,7 @@ function App() {
   // fetch post component created
   useEffect(() => {
     dispatch(fetchPost());
-  }, []);
+  }, [dispatch]);
 
   // select state from redux store
   const {postsList, loading} = useSelector(state => state?.post);
@@ -36,8 +36,11 @@ function App() {
     <div className="post">
       <h1>Redux Toolkit Posts - Thunk</h1>
       <hr />
-      { loading ? "loading" : postsList.map(post => {
-        return post.title
+      { loading ? "loading" : postsList?.map(post => {
+        return <>
+            <div>{post.title}</div>
+            <br /><hr /><br />
+        </>
       }) }
     </div>
   </>
